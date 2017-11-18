@@ -30,6 +30,8 @@
      padding-left :20px;
      color:$color-font-title;
      letter-spacing 1px;
+     margin-top :5px;
+     margin-bottom 5px;
 
      .links
        .icon-right

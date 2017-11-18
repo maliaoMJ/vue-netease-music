@@ -1,13 +1,13 @@
 <template>
   <div class="header">
     <div class="left">
-      <span><icon name="list-ul" class="icon-list-ul"></icon></span>
+      <router-link to="/user/331208193"><span><icon name="list-ul" class="icon-list-ul"></icon></span></router-link>
     </div>
     <div class="center">
-      <h4 class="title">vue-music</h4>
+      <h4 class="title">Netease Music</h4>
     </div>
-    <div class="right">
-      <span><icon name="search" class="icon-search"></icon></span>
+    <div  class="right needsclick">
+      <router-link to="/search"><span><icon name="search" class="icon-search"></icon></span></router-link>
     </div>
   </div>
 </template>
@@ -43,6 +43,7 @@ export default {
           display inline-block;
           width:20px;
           height:20px;
+          color:white;
     .center
       flex:5;
       text-align center;
@@ -59,4 +60,5 @@ export default {
           display inline-block;
           width:20px;
           height:20px;
+          color:white;
 </style>

@@ -1,24 +1,31 @@
 <template>
     <div class="index">
+      <app-header></app-header>
        <div class="index-header">
          <div class="menu-title"><router-link class="links" to="/index/recommendmusic"><span class="text active">音乐</span></router-link></div>
          <div class="menu-title"><router-link class="links" to="/index/recommendvideo"><span class="text">视频</span></router-link></div>
-         <div class="menu-title"><router-link class="links" to="/index/recommendRadio"><span class="text ">电台</span></router-link></div>
+         <div class="menu-title"><router-link class="links" to="/index/recommendRadio"><span class="text ">排行榜</span></router-link></div>
        </div>
       <keep-alive>
-        <router-view></router-view>
+        <transition name="fade">
+           <router-view></router-view>
+        </transition>
       </keep-alive>
     </div>
 </template>
 
 <script>
-    export default {
-      name: 'index',
-      data() {
-        return {
-        }
+  import appHeader from '../../components/header/Header.vue'
+  export default {
+    name: 'index',
+    components: {
+      appHeader
+    },
+    data() {
+      return {
       }
     }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -51,4 +58,10 @@
         height:100%;
         cursor:pointer;
 
+  .fade-enter-active, .fade-leave-active {
+     transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+     opacity: 0
+  }
 </style>

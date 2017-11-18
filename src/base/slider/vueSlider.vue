@@ -1,6 +1,6 @@
 <template>
-  <div class="slide" ref="slide">
-    <div class="slide-group" ref="slideGroup">
+  <div class="slides" ref="slide">
+    <div class="slide-groups" ref="slideGroup">
       <slot>
       </slot>
     </div>
@@ -170,9 +170,9 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/variable"
-  .slide
+  .slides
     min-height: 1px
-    .slide-group
+    .slide-groups
       position: relative
       overflow: hidden
       white-space: nowrap
@@ -181,14 +181,15 @@
         box-sizing: border-box
         overflow: hidden
         text-align: center
-        a
+        .a_click
           display: block
           width: 100%
           overflow: hidden
           text-decoration: none
-        img
-          display: block
-          width: 100%
+          .img_item
+            display: block
+            width: 100%
+            height:100%
     .dots
       position: absolute
       right: 0

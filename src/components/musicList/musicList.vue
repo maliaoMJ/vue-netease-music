@@ -1,7 +1,7 @@
 <template>
     <div class="musicList" >
-        <div class="item" v-for="item in data">
-            <div class="text">
+        <div class="item_music needsclick needclick"  v-for="(item,index) in data" @click="chooseMusic(index)">
+            <div class="text_music">
                 <p class="title">{{item.name}}</p>
                 <p class="sub">{{item.song.artists[0].name}}-{{item.name}}</p>
             </div>
@@ -21,7 +21,24 @@
           default: []
         }
       },
+      data() {
+        return {
+          once: true
+        }
+      },
+      methods: {
+        chooseMusic(index) {
+          this.$store.commit('setPlayCurrentMusic', index)
+          if (this.once) {
+            var tempSongsData = this.formatSongsDataIndex(this.data)
+            this.$store.commit('setPlayList', tempSongsData)
+            this.$store.commit('setPlayState', true)
+            this.once = false
+          }
+        }
+      },
       mounted() {
+        console.log(this.data)
       }
     }
 </script>
@@ -33,16 +50,19 @@
    height:auto;
    width:100%;
    position:relative;
-   .item
+   .item_music
     display :flex;
     width:100%;
     height:56px;
     position:relative;
     border-bottom :1px solid $color-border-1px;
-    .text
-     flex:1;
-     padding-left :15px;
-     padding-top :9px;
+    .text_music
+      flex:1;
+      padding-left :15px;
+      padding-top :9px;
+      text-overflow ellipsis;
+      overflow hidden;
+      white-space nowrap;
      .title
       font-size :16px;
       color:black;

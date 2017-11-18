@@ -1,20 +1,18 @@
 <template>
   <div id="app">
-    <app-header></app-header>
-    <keep-alive>
       <router-view/>
-    </keep-alive>
+      <play-control></play-control>
   </div>
 </template>
 
 <script>
-  import appHeader from './components/header/Header'
+import playControl from './components/playControl/playControl.vue'
 export default {
-    name: 'app',
-    components: {
-      appHeader
-    }
+  name: 'app',
+  components: {
+    playControl
   }
+}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
@@ -25,4 +23,5 @@ export default {
    top:0px;
    left:0px;
    background:#eee;
+   overflow hidden;
 </style>
